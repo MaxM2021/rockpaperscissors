@@ -12,72 +12,61 @@
 //
 // params player or computer, adds 1 to whichever score, when one
 // reaches 5, game ends?
-
-//default input. change x from console
+//scoreboard and digit to rock paper scissors converter combined into
+//other functions.
 
 let playerScore = 0;
 let computerScore = 0;
 
+//Randomly select rock, paper, or scissors
 function computerPlay() {
     const choice = Math.floor((Math.random() * 3) + 1);
-    return choice;
-};
-
-function convertToRPS(input) {
-    switch(input) {
+    switch(choice) {
         case 1:
-            output = "rock";
-            return output;
+            return "rock";
+            break;
         case 2: 
-            output = "paper";
-            return output;
+            return "paper";
+            break;
         case 3:
-            output = "scissors";
-            return output;
+            return "scissors";
+            break;
 
     };
 };
 
-function iterateScore(player) {
-    if (player == "player") {
-        ++playerScore;
-    } else {
-        ++computerScore;
-    };
-};
-
-
-function oneRound(player , computer) {
+//play a round. add 1 point to winning players score
+function playRound(player , computer) {
     player = player.toLowerCase();
 
         if (player == "rock" && computer == "paper") {
-           iterateScore("computer");
+            ++computerScore;
            return "You Lose! Paper beats Rock.";
 
         } else if (player == "rock" && computer == "scissors") { 
-           iterateScore("player");
+            ++playerScore;
            return "You Win! Rock beats Scissors.";
 
         } else if (player == "rock" && computer == "rock") {
            return "Tie! Try Again.";
 
         } else if ( player == "paper" && computer == "rock") {
-           iterateScore("player");
+            ++playerScore;
            return "You Win! Paper beats Rock.";
 
         } else if (player == "paper" && computer == "paper") {
            return "Tie! Try Again.";
 
         } else if (player == "paper" && computer == "scissors") {
-           iterateScore("computer");
+            ++computerScore;
            return "You Lose! Scissors beats Paper.";
 
         } else if (player == "scissors" && computer == "rock") {
-           iterateScore("computer");
+            ++computerScore;
            return "You Lose! Rock beats Scissors.";
 
         } else if (player == "scissors" && computer == "paper") {
-           iterateScore("player");
+            ++playerScore;
            return "You Win! Scissors beats Paper.";
 
         } else if (player == "scissors" && computer == "scissors") {
@@ -86,12 +75,13 @@ function oneRound(player , computer) {
         } else {return "You Broke It!"};
 };
 
+//play 5 rounds, indicate winner
 function game() {
 
     for (let i = 0; i < 5; i++) {
-        let computerSelection = convertToRPS(computerPlay());
+        let computerSelection = computerPlay();
         let playerSelection = prompt("Rock, Paper, or Scissors:");
-        console.log(oneRound(playerSelection, computerSelection));
+        console.log(playRound(playerSelection, computerSelection));
     }
     console.log(`Player Score: ${playerScore} Computer Score ${computerScore}`);
     computerScore = 0;
