@@ -15,8 +15,11 @@
 //scoreboard and digit to rock paper scissors converter combined into
 //other functions.
 
+let playerSelection;
 let playerScore = 0;
 let computerScore = 0;
+const scoreBoard = document.querySelector('#scoreboard');
+const gameResults = document.querySelector('#gameresults');
 
 //Randomly select rock, paper, or scissors
 function computerPlay() {
@@ -76,16 +79,30 @@ function playRound(player , computer) {
 };
 
 //play 5 rounds, indicate winner
-function game() {
+function game(playerSelection) {
 
-    for (let i = 0; i < 5; i++) {
-        let computerSelection = computerPlay();
-        let playerSelection = prompt("Rock, Paper, or Scissors:");
-        console.log(playRound(playerSelection, computerSelection));
-    }
-    console.log(`Player Score: ${playerScore} Computer Score ${computerScore}`);
-    computerScore = 0;
-    playerScore = 0;
+    let computerSelection = computerPlay();
+    gameResults.textContent = playRound(playerSelection, computerSelection);
+    console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`);
+    scoreBoard.textContent = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
 };
 
-game();
+const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(button.id);
+        if (button.id != "shoot") {
+            playerSelection = button.id;
+        };
+    });
+});
+
+const playButton = document.querySelector('#shoot');
+
+playButton.addEventListener('click', () => {
+    console.log(playButton.id);
+    game(playerSelection);
+});
+
+
