@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Courier Prime', monospace;
+    background-color: #1B1B1B;
+    box-sizing: border-box;
+}
+
+#playerbuttons, #results {
+    width: 700px;
+    height: 500px;
+    /* flex: 0 1 auto; */
+    margin: 10px;
+    border: 3px solid #246966;
+    color: #246966;
+    background-color: #1B1B1B;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#playerbuttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#results h3 {
+   margin: 0; 
+}

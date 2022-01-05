@@ -40,7 +40,6 @@ function computerPlay() {
 
 //play a round. add 1 point to winning players score
 function playRound(player , computer) {
-    player = player.toLowerCase();
 
         if (player == "rock" && computer == "paper") {
             ++computerScore;
@@ -102,6 +101,9 @@ const playButton = document.querySelector('#shoot');
 
 playButton.addEventListener('click', () => {
     console.log(playButton.id);
+    if (playerSelection == undefined) {
+        gameResults.textContent = "Choose an option ya dingus";
+    };
     game(playerSelection);
 });
 
