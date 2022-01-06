@@ -43,36 +43,36 @@ function playRound(player , computer) {
 
         if (player == "rock" && computer == "paper") {
             ++computerScore;
-           return "You Lose! Paper beats Rock.";
+           return "\[root\@RockPaperScissors\]\$ You Lose! Paper beats Rock.";
 
         } else if (player == "rock" && computer == "scissors") { 
             ++playerScore;
-           return "You Win! Rock beats Scissors.";
+           return "\[root\@RockPaperScissors\]\$ You Win! Rock beats Scissors.";
 
         } else if (player == "rock" && computer == "rock") {
-           return "Tie! Try Again.";
+           return "\[root\@RockPaperScissors\]\$ Tie! Try Again.";
 
         } else if ( player == "paper" && computer == "rock") {
             ++playerScore;
-           return "You Win! Paper beats Rock.";
+           return "\[root\@RockPaperScissors\]\$ You Win! Paper beats Rock.";
 
         } else if (player == "paper" && computer == "paper") {
-           return "Tie! Try Again.";
+           return "\[root\@RockPaperScissors\]\$ Tie! Try Again.";
 
         } else if (player == "paper" && computer == "scissors") {
             ++computerScore;
-           return "You Lose! Scissors beats Paper.";
+           return "\[root\@RockPaperScissors\]\$ You Lose! Scissors beats Paper.";
 
         } else if (player == "scissors" && computer == "rock") {
             ++computerScore;
-           return "You Lose! Rock beats Scissors.";
+           return "\[root\@RockPaperScissors\]\$ You Lose! Rock beats Scissors.";
 
         } else if (player == "scissors" && computer == "paper") {
             ++playerScore;
-           return "You Win! Scissors beats Paper.";
+           return "\[root\@RockPaperScissors\]\$ You Win! Scissors beats Paper.";
 
         } else if (player == "scissors" && computer == "scissors") {
-           return "Tie! Try Again!";
+           return "\[root\@RockPaperScissors\]\$ Tie! Try Again!";
 
         } else {return "You Broke It!"};
 };
@@ -83,7 +83,7 @@ function game(playerSelection) {
     let computerSelection = computerPlay();
     gameResults.textContent = playRound(playerSelection, computerSelection);
     console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`);
-    scoreBoard.textContent = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
+    scoreBoard.textContent = `\[root\@RockPaperScissors\]\$ Player Score: ${playerScore} Computer Score: ${computerScore}`;
 };
 
 //User interface stuff below
@@ -97,7 +97,7 @@ function removeTransition(e) {
 }; 
 
 buttons.forEach((button) => {
-    button.addEventListener('animationend', removeTransition);
+    button.addEventListener('transitionend', removeTransition);
     button.addEventListener('click', () => {
         console.log(button.id);
         button.classList.add('click');

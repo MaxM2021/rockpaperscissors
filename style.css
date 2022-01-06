@@ -12,12 +12,11 @@ body {
     height: 200px;
     /* flex: 0 1 auto; */
     margin: 10px;
-    border: 3px solid #246966;
-    color: #246966;
+    border: 3px solid #33FF00;
+    color: #33FF00;
     background-color: #1B1B1B;
     box-sizing: border-box;
     padding: 10px;
-    border-radius: 5px;
 }
 
 #playerbuttons {
@@ -28,35 +27,23 @@ body {
 
 #playerbuttons button {
     font-family: 'Courier Prime', monospace;
-    background-color: #246966;
-    border: 0;
-    border-radius: 5px;
+    transition: all .1s ease;
+    background-color: #1B1B1B;
+    color: #33FF00;
+    border: 2px solid #33FF00;
     width: 100px;
     height: 50px;
 }
 
 #playerbuttons button:hover {
-    animation: hover .15s;
-    background-color: #246966;
-    border: 2px solid #AD6E3B;
-    /* transform: scale(1.1); */
+    background-color: #33FF00;
+    color: #1B1B1B;
 }
 
 .click {
-    animation: click .25s !important;
+    transform: scale(1.05);
     animation-timing-function: ease-out !important;
-    background-color: #AD6E3B !important;
-}
-
-@keyframes hover {
-    from {border-color: #246966;}
-    to {border-color: #AD6E3B;}
-    animation-timing-function: ease-out !important;
-}
-
-@keyframes click {
-    from {background-color: #246966;}
-    to {background-color: #AD6E3B;}
+    background-color: #33FF00; !important;
 }
 
 #results h3 {
