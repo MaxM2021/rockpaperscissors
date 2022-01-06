@@ -21,6 +21,9 @@ let computerScore = 0;
 const scoreBoard = document.querySelector('#scoreboard');
 const gameResults = document.querySelector('#gameresults');
 
+
+gameResults.textContent = "\[root\@RockPaperScissors\]\$";
+
 //Randomly select rock, paper, or scissors
 function computerPlay() {
     const choice = Math.floor((Math.random() * 3) + 1);
