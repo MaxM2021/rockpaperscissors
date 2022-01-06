@@ -86,15 +86,27 @@ function game(playerSelection) {
     scoreBoard.textContent = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
 };
 
+//User interface stuff below
+//
 const buttons = document.querySelectorAll(".btn");
 
+function removeTransition(e) {
+//    if (e.propertyName !== 'transform') return;
+    console.log(this);
+    this.classList.remove('click');
+}; 
+
 buttons.forEach((button) => {
+    button.addEventListener('animationend', removeTransition);
     button.addEventListener('click', () => {
         console.log(button.id);
+        button.classList.add('click');
         if (button.id != "shoot") {
             playerSelection = button.id;
         };
     });
+});
+buttons.forEach((button) => {
 });
 
 const playButton = document.querySelector('#shoot');

@@ -9,7 +9,7 @@ body {
 
 #playerbuttons, #results {
     width: 700px;
-    height: 500px;
+    height: 200px;
     /* flex: 0 1 auto; */
     margin: 10px;
     border: 3px solid #246966;
@@ -17,6 +17,7 @@ body {
     background-color: #1B1B1B;
     box-sizing: border-box;
     padding: 10px;
+    border-radius: 5px;
 }
 
 #playerbuttons {
@@ -25,6 +26,40 @@ body {
     justify-content: space-between;
 }
 
+#playerbuttons button {
+    font-family: 'Courier Prime', monospace;
+    background-color: #246966;
+    border: 0;
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+}
+
+#playerbuttons button:hover {
+    animation: hover .15s;
+    background-color: #246966;
+    border: 2px solid #AD6E3B;
+    /* transform: scale(1.1); */
+}
+
+.click {
+    animation: click .25s !important;
+    animation-timing-function: ease-out !important;
+    background-color: #AD6E3B !important;
+}
+
+@keyframes hover {
+    from {border-color: #246966;}
+    to {border-color: #AD6E3B;}
+    animation-timing-function: ease-out !important;
+}
+
+@keyframes click {
+    from {background-color: #246966;}
+    to {background-color: #AD6E3B;}
+}
+
 #results h3 {
    margin: 0; 
 }
+
